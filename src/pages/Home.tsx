@@ -13,7 +13,9 @@ import { styled } from '@mui/material/styles';
 
 const HeroSection = styled(Box)(({ theme }: { theme: Theme }) => ({
   height: '80vh',
-  background: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1589963463295-81f6ae08fc5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
+  // Image background homepage.
+  backgroundImage: 'url(/assets/homebg.jpg)',
+  backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   display: 'flex',
@@ -43,12 +45,18 @@ const GalleryImage = styled(Box)(({ theme }: { theme: Theme }) => ({
 }));
 
 const galleryImages = [
-  '/tour1.jpg',
-  '/tour2.jpg',
-  '/tour3.jpg',
-  '/tour4.jpg',
-  '/tour5.jpg',
-  '/tour6.jpg',
+  '/assets/tour1.jpg',
+  '/assets/tour6.jpg',
+  '/assets/tour5.jpg',
+  '/assets/tour2.jpg',
+  '/assets/tour4.jpg',
+  '/assets/tour3.jpg',
+  '/assets/tour7.jpg',
+  '/assets/tour8.jpg',
+  '/assets/tour9.jpg',
+  '/assets/tour10.jpg',
+  '/assets/tour11.jpg',
+  '/assets/tour12.jpg',
 ];
 
 const Home: React.FC = () => {
@@ -63,7 +71,7 @@ const Home: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Typography variant="h2" component="h1" gutterBottom>
+            <Typography className='rubrik' variant="h2" component="h1" gutterBottom>
               Explore Malta with Stanley
             </Typography>
             <Typography variant="h5" paragraph>
@@ -82,12 +90,12 @@ const Home: React.FC = () => {
         </Container>
       </HeroSection>
 
-      <Container sx={{ py: 8 }}>
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="h4" gutterBottom>
+      <Container sx={{ py: 10 }}>
+        <Box sx={{ textAlign: 'center', mb: 6 , maxWidth: '700px', mx: 'auto'}}>
+          <Typography variant="h3" gutterBottom>
             Meet Stanley
           </Typography>
-          <Typography variant="body1" paragraph>
+          <Typography className="p1" variant="body1" paragraph>
             Stanley Cassar Darien is a passionate Maltese tour guide with 20+ years of experience. 
             From historic landmarks to hidden gems, Stanley brings Malta's rich past to life through 
             fun, private walking tours.
@@ -97,14 +105,14 @@ const Home: React.FC = () => {
 
       <Box id="gallery" sx={{ py: 8, bgcolor: '#f5f5f5' }}>
         <Container>
-          <Typography variant="h4" component="h2" align="center" gutterBottom>
+          <Typography variant="h3" component="h2" align="center" gutterBottom>
             Moments from My Tours
           </Typography>
           <Grid container spacing={4} sx={{ mt: 2 }}>
             {galleryImages.map((image, index) => (
               <Grid item key={index} xs={12} sm={6} md={4}>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 20 }} 
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
